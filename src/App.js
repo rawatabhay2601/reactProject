@@ -29,17 +29,17 @@ function App() {
   ];
 
   return (
-    <ul>
+    <div>
       {expenses.map((expense) => {
-        return <li>
+        return <div>
           <ExpenseItem
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
           ></ExpenseItem> 
-        </li>
+        </div>
       })}
-    </ul>
+    </div>
   );
 };
 
