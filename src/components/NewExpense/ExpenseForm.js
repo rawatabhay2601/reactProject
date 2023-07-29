@@ -47,6 +47,8 @@ const ExpenseForm = (props) => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
+    console.log(enteredDate);
+    console.log(typeof expenseData.date.getMonth === 'function');
 
     props.onSaveExpenseData(expenseData);
     setEnteredTitle('');

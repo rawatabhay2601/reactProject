@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
+
 import NewExpense from './components/NewExpense/NewExpense';
 import Expenses from './components/Expense/Expenses';
 
 const App = () => {
-  const expenses = [
+  const DUMMY_EXPENSES = [
     {
       id: 'e1',
       title: 'Toilet Paper',
       amount: 94.12,
       date: new Date(2020, 7, 14),
     },
-    {
+    { 
       id: 'e2',
       title: 'New TV',
       amount: 799.49,
@@ -30,21 +31,19 @@ const App = () => {
     },
   ];
 
-  const [expenseArray, setExpense] = useState(expenses);
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
   const addExpenseHandler = expense => {
+    
+    console.log('App.js Expense added : ',expense);
 
-    setExpense([...expenseArray, expense]);
+    setExpenses(addedExpense => {
+      return [...addedExpense,expense];
+    });
 
-    return (
-      <div>
-        {console.log('Doing!!')}
-        <NewExpense onAddExpense={addExpenseHandler} />
-        <Expenses items={expenseArray} />
-      </div>
-    );
   };
-
+  
+  // Reason why we use only one tag to return
   // return React.createElement(
   //   'div',
   //   {},
@@ -55,10 +54,9 @@ const App = () => {
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenseArray} />
+      <Expenses items={expenses} />
     </div>
   );
-
 };
 
 export default App;

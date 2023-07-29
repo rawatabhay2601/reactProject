@@ -18,6 +18,7 @@ function ExpenseItem(props) {
     console.log(price);
   };
 
+  console.log('Expense Item running');
   return (
     <div id='expense'>
       <Card className='expense-item'>
