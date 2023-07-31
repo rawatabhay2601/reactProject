@@ -11,7 +11,6 @@ const ExpenseList = props => {
         return <h2 className='expenses-list__fallback'>No Expense Added !!</h2>;
     }
 
-
     return (
         <ul className='expenses-list'>
             {
